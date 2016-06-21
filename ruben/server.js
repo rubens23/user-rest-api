@@ -22,4 +22,8 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
-app.listen(3000);
+app.use('*', (req, res) => {
+  res.status(404).json({message: 'not found'});
+});
+
+app.listen(3000, () => console.log('up on 3000'));
